@@ -31,12 +31,12 @@ public class Student implements Attendee{
 
 	@Override
 	public boolean matches(String first, String last) {
-		return (first.toUpperCase() == this.firstName.toUpperCase() && last.toUpperCase() == this.lastName.toUpperCase());
+		return (first.toUpperCase()equals.(this.firstName.toUpperCase()) && last.toUpperCase()equals.(this.lastName.toUpperCase());
 	}
 
 	@Override
 	public boolean matches(String last) {
-		return (last.toUpperCase() == this.lastName.toUpperCase());
+		return (last.toUpperCase()equals.(this.lastName.toUpperCase());
 	}
 
 	@Override
