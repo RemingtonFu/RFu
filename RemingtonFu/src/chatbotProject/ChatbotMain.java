@@ -1,26 +1,16 @@
-/**
- *Note: I wrote this class without a compiler, quickly. There are probably errors. I apologize. When I get Internet access with my own computer, I will revise.
- */
-package strings;
+package chatbotProject;
 
-import java.util.Scanner;
-
-public class Utility{
-
-	private static Scanner inputSource = new Scanner(System.in);
-
-
-	public static void main(String[] args){
-		//this main method is designed to help you test your keywordIsIsolated method and noNegations method
-		if( keywordIsIsolated(4,"good","i'm good") && keywordIsIsolated(0,"good","good. how are you?") 
-				&& !keywordIsIsolated(4,"good","goodbye. i hope you feel good") && keywordIsIsolated(25,"good","goodbye. i hope you feel good")){
-			print("You passed all the keywordIsIsolated tests.");
-		}
-		if(!noNegations("I am not great, but I am okay", 9) && noNegations("I am not great, but I am okay", 25) && noNegations("okay", 0)){
-			print("You passed all the noNegations tests.");
-		}
-
+public class ChatbotMain {
+	
+	public static Chatbot chatbot = new Chatbot();
+	
+	public static void main(String[] args) {
+		chatbot.startTalking();
 	}
+
+	//pasted from class notes:
+	
+	private static Scanner inputSource = new Scanner(System.in);
 	
 	/**
 	 * This method returns the indes of keywork in the searchString (afterPsn)
@@ -116,5 +106,4 @@ public class Utility{
 		}
 		return value;
 	}
-
 }
