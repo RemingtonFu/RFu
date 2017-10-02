@@ -1,7 +1,6 @@
 package chatbotProject;
 
 public class ChatbotRemington implements Topic{
-	
 	private String[] keywords;
 	private String[] goodbyeWords;
 	private String secretWord;

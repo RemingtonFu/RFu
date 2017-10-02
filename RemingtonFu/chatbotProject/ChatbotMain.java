@@ -1,25 +1,33 @@
 package chatbotProject;
 
-import src.chatbotProject.Chatbot;
-import src.chatbotProject.NumberFormatException;
-import src.chatbotProject.Scanner;
-import src.chatbotProject.String;
+import java.util.Scanner;
 
 public class ChatbotMain {
-	
-	public static Chatbot chatbot = new Chatbot();
-	
-	public static void main(String[] args) {
+	public static ChatBot chatbot = new ChatBot();
+	public static void main (String[] args) {
 		chatbot.startTalking();
 	}
-
-	//pasted from class notes:
-	
+	//pasted from class notes "utility"
 	private static Scanner inputSource = new Scanner(System.in);
-	
-	/**
-	 * This method returns the indes of keywork in the searchString (afterPsn)
-	 * where keyword is isolated and has noNegations. It returns -1 if the keywork is not found
+
+	public static boolean keywordIsIsolated(int psn, String keyword, String s){
+		for (int i = 0; i<keyword.length();i++) {
+			if (s.substring(psn,psn++)!=" ") {
+				psn=psn+1;
+			}
+			else {
+				return false;
+			}
+			}
+		return true;
+		}
+
+	public static boolean noNegations(String s, int psn){
+		return true;
+	}
+	/** this method returns the index of keyword in the searchString  (after startPsm)
+	 * where keyword is isolated and has noNegations. It returns -1 if the
+	 * keyword is not found
 	 */
 	public static int findKeyword(String searchString, String keyword, int startPsn) {
 		//makes lowercase
@@ -30,24 +38,17 @@ public class ChatbotMain {
 		
 		//keep searching until keyword is found (noNegations and isolated)
 		while(psn >= 0) {
+			
 			if(keywordIsIsolated(psn, keyword, searchString) && noNegations(searchString, psn)) {
 				return psn;
-			}else {
+			}
+			else {
 				//look for the next occurrence
 				psn = searchString.indexOf(keyword, psn+1);
 			}
 		}
-		return = -1;
+		return -1;
 	}
-
-	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		return true;
-	}
-
-	public static boolean noNegations(String s, int psn){
-		return true;
-	}
-
 
 	public static String getInput(){
 		return inputSource.nextLine();
