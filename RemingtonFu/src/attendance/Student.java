@@ -29,14 +29,10 @@ public class Student implements Attendee{
 		return this.lastName;
 	}
 
-	@Override
-	public boolean matches(String first, String last) {
-		return (first.toUpperCase()equals.(this.firstName.toUpperCase()) && last.toUpperCase()equals.(this.lastName.toUpperCase());
-	}
 
 	@Override
 	public boolean matches(String last) {
-		return (last.toUpperCase()equals.(this.lastName.toUpperCase());
+		return last.toUpperCase().equals(this.lastName.toUpperCase());
 	}
 
 	@Override
@@ -58,7 +54,13 @@ public class Student implements Attendee{
 			strPresent = "PRESENT";
 		strPresent = "ABSENT";
 		
-		return (strLastName + strFirstName + strPresent);
+		return (strLastName + strFirstName + strPresent + "\n");
+	}
+
+	@Override
+	public boolean mathces(String first, String last) {
+		return first.toUpperCase().equals(this.firstName.toUpperCase()) && last.toUpperCase().equals(this.lastName.toUpperCase());
+
 	}
 	
 }
