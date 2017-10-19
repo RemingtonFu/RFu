@@ -6,7 +6,7 @@ public class ObjectArrays {
 		Object[] people = new Object[20];
 		populate(people);
 		people[0] = new Thing("coffee maker");
-		for(Person p: people) {
+		for(Object p: people) {
 			System.out.println(p);
 		}
 	}
@@ -40,4 +40,52 @@ public class ObjectArrays {
 	private Borough randomBorough() {
 		return Borough.NY_BOROUGHS[(int)(Math.random()*Borough.NY_BOROUGHS.length)];
 	}
+	
+	public Person[] selectGroup(Person[] population, int length) {
+		Person[] group = new Person[length];
+		group[0] = selectAPerson(population);
+		for(int i = 0;  i < length; i++) {
+			Person nextPerson = selectAPerson(population);
+			while(personInGroup(group, nextPerson)) {
+				nextPerson = selectAPerson(population);
+			}
+			group[i] = nextPerson;
+		}
+		return group;
+	}
+	public int countDifferences(Person[] arr1, Person[] arr2) {
+		int count = 0;
+		if(p.hobby == this.hobby) {
+			count++;
+			}
+	}	 
+	
+	/**
+	 * calls count differences on two Person arrays,
+	 * each array must contain the same elements, but randomly ordered
+	 * Print the number of differences between the two arrays
+	 * Do this 100 times, print the average (hint: average needs to be a double)
+	 */
+	public void testShuffling(Person[] arr1, Person[] arr2) {
+		countDifferences(arr1, arr2)
+	}
+	
+	
+	
+	
+	
+	
+		
+	private boolean personInGroup(Person[] group, Person nextPerson) {
+		for(int i = 0;  i < group.length; i++) {
+			if (group[i] == nextPerson) {
+				
+			}
+		}
+	}
+	
+	private int selectAPerson(Person[] group, Person nextPerson) {
+		
+	}
+	
 }
