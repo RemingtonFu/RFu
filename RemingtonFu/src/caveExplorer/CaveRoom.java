@@ -84,5 +84,71 @@ public class CaveRoom {
 		 String[] direction = {"the North", "the East", "the South", "the West"};
 		 return direction[dir];
 	 }
+	 
+	 public void enter() {
+		 contents = "X";
+	 }
 	
+	 public void leave() {
+		 contents = defaultContents;
+	 }
+	 
+	 /**
+	  * Gives this room access to anotherRoom (and vice-versa)
+	  * and sets a door between them, updating the directions
+	  * @param direction
+	  * @param anotherRoom
+	  * @param door
+	  */
+	 public void setConnection(int direction, CaveRoom anotherRoom, Door door) {
+		 addRoom(direction, anotherRoom, door);
+		 anotherRoom.addRoom(oppositeDirection(direction), this, door);
+	 }
+
+	private static int oppositeDirection(int direction) {
+		int[] opposite = {2, 3, 0, 1};
+		return opposite[direction];
+	}
+
+	private void addRoom(int direction, CaveRoom cave, Door door) {
+		borderingRooms[direction] = cave;
+		doors[direction] = door;
+		setDirections();
+	}
+	
+	public void interpretInput(String input) {
+		while(isValid(input)) {
+			System.out.println("You can only enter 'w', 'a', 's', or 'd'.");
+			input = CaveExplorer.in.nextLine();
+		}
+		//task: convert user input into a direction
+		//DO NOT USE AN IF STATEMENT
+		//(or, if you must, don't use more than 1)
+		String dirs = "wdsa";
+		goToRoom(dirs.indexOf(input));
+	}
+
+	private boolean isValid(String input) {
+		String validEntries = "wdsa";
+		return validEntries.indexOf(input) > -1 && input.length() == 1;
+	}
+
+	private void goToRoom(int direction) {
+		//first, protect against null pointer exception
+		//(user cannot go through non-existent door
+		if(borderingRooms[direction] != null && doors[direction] != null) {
+			CaveExplorer.currentRoom.leave();
+			CaveExplorer.currentRoom = borderingRooms[direction];
+			CaveExplorer.currentRoom.enter();
+			CaveExplorer.inventory.updateMap();
+		}
+	}
+	
+	/**
+	 * This will be where your group sets up all the caves
+	 * and all the connections
+	 */
+	public static void setUpCaves() {
+		
+	}
 }
