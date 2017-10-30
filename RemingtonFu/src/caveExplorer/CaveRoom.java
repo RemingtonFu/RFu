@@ -167,6 +167,10 @@ public class CaveRoom {
 			CaveExplorer.inventory.updateMap();
 		}
 	}
+	public Door getDoor(int direction) {
+		return doors[direction];
+
+	}
 	
 	/**
 	 * This will be where your group sets up all the caves
