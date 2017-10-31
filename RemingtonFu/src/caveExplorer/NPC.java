@@ -1,0 +1,17 @@
+package caveExplorer;
+
+public class NPC {
+
+	public boolean isActive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void interact() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public 
+	
+}
