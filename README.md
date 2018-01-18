@@ -2,22 +2,22 @@ package GUIAssessment;
 
 import guiTeacher.GUIApplication;
 
-public class MainGUI extends GUIApplication {
-	public static MainGUI test;
-	public static MainScreen myscreen;
+public class ClickerGUI extends GUIApplication {
+	public static ClickerGUI test;
+	public static ClickerScreen myscreen;
 	
-	public MainGUI(int width, int height) {
+	public ClickerGUI(int width, int height) {
 		super(width, height);
 		setVisible(true);
 	}
 	@Override
 	public void initScreen() {
-		myscreen= new MainScreen(getWidth(),getHeight());
+		myscreen= new ClickerScreen(getWidth(),getHeight());
 		setScreen(myscreen);
 
 	}
 	public static void main(String[] args) {
-		test = new MainGUI(500,500);
+		test = new ClickerGUI(500,500);
 		Thread go= new Thread(test);
 		go.start();
 	}
@@ -36,14 +36,14 @@ import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class MainScreen extends FullFunctionScreen {
+public class ClickerScreen extends FullFunctionScreen {
 	
 	private int Score;
 	private int Countdown;
 	private int StartTime;
 	private TextLabel scoreboard;
 	private TextLabel clock;
-	public MainScreen(int width, int height) {
+	public ClickerScreen(int width, int height) {
 		super(width, height);
 		update();
 		Score=0;
